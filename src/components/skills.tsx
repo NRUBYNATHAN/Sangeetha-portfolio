@@ -6,7 +6,7 @@ import { COLORS } from '../constants/colors';
 const SKILLS = [
   { name: 'Python', icon: '/path/to/python-icon.png' },
   { name: 'SQL', icon: '/path/to/sql-icon.png' },
-  { name: 'Pandas', icon: '/path/to/pandas-icon.png' },
+  { name: 'Tableau', icon: '/path/to/pandas-icon.png' },
   { name: 'Matplotlib', icon: '/path/to/matplotlib-icon.png' },
   { name: 'Excel', icon: '/path/to/excel-icon.png' },
   { name: 'PowerBI', icon: '/path/to/powerbi-icon.png' }
@@ -19,7 +19,7 @@ const Skills: React.FC = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="container max-w-7xl mx-auto px-6 py-16"
+      className="container max-w-7xl mx-auto px-6 py-20"
     >
       <h2
         className="text-3xl font-bold text-center mb-8"

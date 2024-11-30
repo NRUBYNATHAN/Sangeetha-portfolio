@@ -10,7 +10,7 @@ const About: React.FC = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="container max-w-7xl mx-auto px-6 py-16"
+      className="container max-w-7xl mx-auto px-6 py-20"
     >
       <div className="grid md:grid-cols-2 gap-8 items-center">
         {/* Image Section */}

@@ -13,7 +13,7 @@ const Project: React.FC = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="container mx-auto max-w-7xl px-6 py-16"
+      className="container mx-auto max-w-7xl px-6 py-20"
     >
       <h2
         className="text-3xl font-bold text-center mb-8"

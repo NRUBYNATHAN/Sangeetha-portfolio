@@ -2,12 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { COLORS } from '../constants/colors';
 import { Download } from 'lucide-react';
+import splitfunction from '../utils/split-function';
+
+const charVarients = {
+  hidden: { opacity: 0 },
+  reveal: { opacity: 1 }
+}
 
 const Hero: React.FC = () => {
   const handleResumeDownload = () => {
-    // Implement resume download logic
     window.open('/path/to/resume.pdf', '_blank');
   };
+  const name = "Sangeetha Kanniyappan"
+
+  const nameChar = splitfunction(name)
 
   return (
     <motion.section
@@ -18,6 +26,7 @@ const Hero: React.FC = () => {
       className="min-h-screen flex items-center container max-w-7xl mx-auto px-6 pt-16"
     >
       <div className="grid md:grid-cols-2 gap-8 items-center">
+
         {/* Photo Section */}
         <motion.div
           initial={{ x: -100, opacity: 0 }}
@@ -25,13 +34,22 @@ const Hero: React.FC = () => {
           transition={{ duration: 1.1 }}
           className="flex justify-center"
         >
-          <img
+          <motion.img
             src="/api/placeholder/400/400"
             alt="Profile"
             className="rounded-full w-72 h-72 object-cover border-4"
             style={{ borderColor: COLORS.primary }}
+            animate={{
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
           />
         </motion.div>
+
 
         {/* Text Section */}
         <motion.div
@@ -39,12 +57,25 @@ const Hero: React.FC = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1.1 }}
         >
-          <h1
+          <motion.h1
+            initial="hidden"
+            whileInView="reveal"
+            transition={{ staggerChildren: .09 }}
             className="text-4xl font-bold mb-4"
             style={{ color: COLORS.text }}
           >
-            Sangeetha Kanniyappan
-          </h1>
+            {
+              nameChar.map((char) => (
+                <motion.span
+                  key={char}
+                  transition={{ duration: 2 }}
+                  variants={charVarients}
+                >
+                  {char}
+                </motion.span>
+              ))
+            }
+          </motion.h1>
           <h2
             className="text-2xl font-bold mb-4"
             style={{ color: COLORS.secondary }}
